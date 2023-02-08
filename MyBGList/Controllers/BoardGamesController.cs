@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using MyBGList.DTO;
 
 namespace MyBGList.Controllers;
 
@@ -13,36 +14,50 @@ public class BoardGamesController : ControllerBase
         _logger = logger;
     }
 
-    [HttpGet("GetBoardGames")] //local:PORT/boardgames/GetBoardGames 
-    // [HttpGet] // local:PORT/boardgames
+    // [HttpGet("GetBoardGames")] //local:PORT/boardgames/GetBoardGames 
+    [HttpGet] // local:PORT/boardgames
     [ResponseCache(Location = ResponseCacheLocation.Any, Duration = 60)]
-    public IEnumerable<BoardGame> Get()
+    public RestDTO<BoardGame[]> Get()
     {
-        return new[]
+        return new()
         {
-            new BoardGame()
+            Data = new[]
             {
-                Id = 1,
-                Name = "Axis & Allies",
-                Year = 1981,
-                MinPlayers = 2,
-                MaxPlayers = 5
+                new BoardGame
+                {
+                    Id = 1,
+                    Name = "Axis & Allies",
+                    Year = 1981,
+                    MinPlayers = 2,
+                    MaxPlayers = 5
+                },
+                new BoardGame
+                {
+                    Id = 2,
+                    Name = "Citadels",
+                    Year = 2000,
+                    MinPlayers = 2,
+                    MaxPlayers = 8
+                },
+                new BoardGame
+                {
+                    Id = 3,
+                    Name = "Terraforming Mars",
+                    Year = 2016,
+                    MinPlayers = 1,
+                    MaxPlayers = 5
+                }
             },
-            new BoardGame()
+            Links = new()
             {
-                Id = 2,
-                Name = "Citadels",
-                Year = 2000,
-                MinPlayers = 2,
-                MaxPlayers = 8
-            },
-            new BoardGame()
-            {
-                Id = 3,
-                Name = "Terraforming Mars",
-                Year = 2016,
-                MinPlayers = 1,
-                MaxPlayers = 5
+                new[]
+                {
+                    new LinkDTO(
+                        href: Url.Action("Get", "BoardGames", null, Request.Scheme)!,
+                        rel: "self",
+                        type: "GET"
+                    ),
+                }
             }
         };
     }

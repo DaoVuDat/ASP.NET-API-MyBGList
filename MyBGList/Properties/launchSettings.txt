@@ -1,0 +1,5 @@
+“$schema”, pointing to a URL describing the schema used by the file.
+“iisSettings”, containing some base configuration settings for the IIS Express web server.
+“profiles”, which is internally split into two sub-sections: “IIS Express” and “MyBGList”, 
+    containing respectively other settings for the IIS Express web server and the configuration settings 
+    for the Kestrel web server.

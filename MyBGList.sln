@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBGList", "MyBGList\MyBGList.csproj", "{F4A69126-2B78-44FE-80FD-7FFB03306C56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBGList_ApiVersion", "MyBGList_ApiVersion\MyBGList_ApiVersion.csproj", "{55F7C8EC-E772-4A22-8217-C4881FCD52FA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4A69126-2B78-44FE-80FD-7FFB03306C56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4A69126-2B78-44FE-80FD-7FFB03306C56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4A69126-2B78-44FE-80FD-7FFB03306C56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4A69126-2B78-44FE-80FD-7FFB03306C56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55F7C8EC-E772-4A22-8217-C4881FCD52FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55F7C8EC-E772-4A22-8217-C4881FCD52FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55F7C8EC-E772-4A22-8217-C4881FCD52FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55F7C8EC-E772-4A22-8217-C4881FCD52FA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
