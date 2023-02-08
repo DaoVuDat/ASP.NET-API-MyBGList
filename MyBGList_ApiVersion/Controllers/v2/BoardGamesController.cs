@@ -17,7 +17,7 @@ public class BoardGamesController : ControllerBase
 
     // [HttpGet("GetBoardGames")] //local:PORT/boardgames/GetBoardGames 
     [HttpGet] // local:PORT/boardgames
-    [ResponseCache(Location = ResponseCacheLocation.Any, Duration = 60)]
+    [ResponseCache(Location = ResponseCacheLocation.Client, Duration = 120)]
     public RestDTO<BoardGame[]> Get()
     {
         return new()
@@ -27,7 +27,7 @@ public class BoardGamesController : ControllerBase
                 new BoardGame(),
                 
             },
-            Links = new()
+            Links = new List<LinkDTO[]>
             {
                 new[]
                 {

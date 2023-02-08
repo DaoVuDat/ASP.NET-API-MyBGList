@@ -49,6 +49,12 @@ builder.Services.AddCors(options =>
             policyBuilder.AllowAnyMethod();
             policyBuilder.AllowAnyOrigin();
         });
+        options.AddPolicy(name: "AnyOrigin_GetOnly", policyBuilder =>
+        {
+            policyBuilder.WithMethods(HttpMethods.Get);
+            policyBuilder.AllowAnyHeader();
+            policyBuilder.AllowAnyOrigin();
+        });
     }
 );
 
@@ -122,8 +128,8 @@ app.MapGet("/error",
     [ApiVersion("2.0")]
     () => Results.Problem());
 
-app.MapGet("/cod/test",
-    [EnableCors("AnyOrigins")] 
+app.MapGet("/v{version:ApiVersion}/cod/test",
+    [EnableCors("AnyOrigin_GetOnly")] 
     [ResponseCache(NoStore = true)]
     [ApiVersion("1.0")]
     [ApiVersion("2.0")]
