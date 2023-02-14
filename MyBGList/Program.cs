@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MyBGList;
+using MyBGList.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,7 +32,10 @@ builder.Services.AddCors(options =>
     }
 );
 
-
+builder.Services.AddDbContext<ApplicationDbContext>(optionsAction: options =>
+{
+    options.UseNpgsql("Host=localhost:5432;Database=MyBGList;Username=daovudat;Password=daovudat");
+});
 
 var app = builder.Build();
 
